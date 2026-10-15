@@ -1,5 +1,13 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// Keep the mobile action clear of the registration form while it is in view.
+const mobileCta = document.querySelector('.mobile-cta');
+if (mobileCta && 'IntersectionObserver' in window) {
+  new IntersectionObserver(([entry]) => {
+    mobileCta.hidden = entry.isIntersecting;
+  }).observe(document.getElementById('register'));
+}
+
 // Preserve the live site's existing TikTok page-view integration.
 !function(w,d,t){
   w.TiktokAnalyticsObject=t;

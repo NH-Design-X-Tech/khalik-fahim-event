@@ -18,7 +18,7 @@
     <div class="wrap nav">
       <a class="brand" href="#top" aria-label="خلك فاهم — البداية"><img class="brand-mark" src="assets/khalik-fahem-mark.svg" alt="خلك فاهم" width="46" height="46"></a>
       <nav class="step-list" aria-label="خطوات الحضور">
-        <a class="step" href="#details"><b>١</b> اكتشف الحدث</a>
+        <a class="step active" href="#details"><b>١</b> اكتشف الحدث</a>
         <a class="step" href="#register"><b>٢</b> احجز مقعدك</a>
       </nav>
     </div>
@@ -27,14 +27,22 @@
     <section class="hero" id="top" aria-labelledby="event-title">
       <div class="wrap hero-inner">
         <span class="eyebrow"><span class="live-dot" aria-hidden="true"></span> خلك فاهم • حدث مباشر</span>
-        <h1 class="hero-title" id="event-title"><span>خطوتك المهنية القادمة،</span><span class="hero-title-highlight">تبدأ من هنا</span></h1>
+        <h1 class="hero-title" id="event-title"><span class="hero-title-main">خطوتك المهنية القادمة،</span><span class="hero-title-highlight">تبدأ من هنا</span></h1>
         <p class="hero-description">انضم لأحمد القحطاني في حدث مباشر يشاركك فيه كيف تطور حضورك المهني وتزيد فرصك في الوصول لفرص وظيفية أفضل.</p>
-        <a class="cta" href="#register">احجز مقعدك الآن <span aria-hidden="true">←</span></a>
-        <div class="event-details" id="details" aria-label="تفاصيل الحدث">
+        <div class="event-shell" id="details">
+          <div class="event-invitation">
+            <span class="invitation-label">نلتقي في حدث خلك فاهم</span>
+            <h2>مع أحمد القحطاني</h2>
+            <p>خطوتك القادمة تبدأ بلقاء</p>
+            <div class="event-details" aria-label="تفاصيل الحدث">
           <div class="event-detail"><svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4m8-4v4M4 11h16"/></svg><div><span class="detail-label">الموعد</span><strong>الأربعاء 26 أغسطس</strong></div></div>
           <div class="event-detail"><svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></svg><div><span class="detail-label">الوقت</span><strong>8:00 مساءً</strong></div></div>
           <div class="event-detail"><svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><div><span class="detail-label">المكان</span><strong>فندق الريتز كارلتون</strong></div></div>
+            </div>
+          </div>
+          <div class="under-event"><span>الخطوة ١: اكتشف الحدث</span><span>الخطوة ٢: احجز مقعدك</span></div>
         </div>
+        <a class="cta" href="#register">احجز مقعدك الآن <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6"/></svg></a>
       </div>
     </section>
     <section class="registration" id="register" aria-labelledby="registration-title">
@@ -44,8 +52,10 @@
         <p class="form-fallback">إذا لم يظهر نموذج التسجيل، <a href="https://form.typeform.com/to/y1BHy5oH" target="_blank" rel="noopener">افتحه في صفحة مستقلة <span aria-hidden="true">↗</span></a></p>
       </div>
     </section>
+    <section class="final" aria-labelledby="final-title"><div class="wrap"><span class="kicker">نلتقي هناك</span><h2 id="final-title">خطوتك القادمة، تبدأ بقرارك</h2><p>انضم للقاء أحمد القحطاني في حدث خلك فاهم.</p><a class="cta" href="#register">سجّل حضورك <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6"/></svg></a></div></section>
   </main>
   <footer class="wrap foot"><img src="assets/khalik-fahem-mark.svg" alt="خلك فاهم" width="38" height="38"><span>© <span id="year"></span> خلك فاهم</span><a href="#top">العودة للأعلى ↑</a></footer>
+  <div class="mobile-cta"><a class="cta" href="#register">احجز مقعدك الآن <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6"/></svg></a></div>
   <script src="https://embed.typeform.com/next/embed.js"></script>
 </body>
 </html>

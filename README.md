@@ -5,6 +5,8 @@ Arabic RTL event landing page for Ahmad Al Qathani.
 ## Design
 Matches the visual system of [ramez961/khalik-fahem](https://github.com/ramez961/khalik-fahem): lime #b2cc3a, deep green #001c15, IBM Plex Sans Arabic, original logo and pattern.
 
+The event layout adapts the reference's centered two-line headline, 850px white frame, dark green closing section, button styling, and mobile action bar. The framed hero presents event details. The mobile action hides while registration is visible so it does not cover the form.
+
 ## Run
 Serve this directory with any static HTTP server. No build or dependencies required.
 
