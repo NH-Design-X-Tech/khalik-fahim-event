@@ -1,5 +1,59 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// Load the live Typeform configuration only near the form or on registration intent.
+const formWrapper = document.querySelector('.form-wrapper');
+const formPlaceholder = document.querySelector('.form-placeholder');
+const formStatus = document.querySelector('.form-status');
+let formStarted = false;
+let formObserver;
+
+function loadRegistration() {
+  if (formStarted) return;
+  formStarted = true;
+  formObserver?.disconnect();
+  formStatus.textContent = 'جارٍ تحميل نموذج التسجيل…';
+
+  let frameObserver;
+  const showFallback = () => {
+    if (!formWrapper.querySelector('iframe')) {
+      formStatus.textContent = 'تعذّر تحميل النموذج. افتحه من رابط التسجيل أدناه.';
+    }
+  };
+  const timeout = window.setTimeout(showFallback, 15000);
+  const markReady = () => {
+    const frame = formWrapper.querySelector('iframe');
+    if (!frame) return;
+    frame.title = 'نموذج التسجيل في حدث أحمد القحطاني';
+    formPlaceholder.hidden = true;
+    window.clearTimeout(timeout);
+    frameObserver.disconnect();
+  };
+  frameObserver = new MutationObserver(markReady);
+  frameObserver.observe(formWrapper, { childList: true, subtree: true });
+
+  const embed = document.createElement('script');
+  embed.src = 'https://embed.typeform.com/next/embed.js';
+  embed.async = true;
+  embed.addEventListener('error', () => {
+    window.clearTimeout(timeout);
+    frameObserver.disconnect();
+    showFallback();
+  }, { once: true });
+  document.head.append(embed);
+}
+
+if ('IntersectionObserver' in window) {
+  formObserver = new IntersectionObserver(entries => {
+    if (entries.some(entry => entry.isIntersecting)) loadRegistration();
+  }, { rootMargin: '200px 0px' });
+  formObserver.observe(formWrapper);
+} else {
+  loadRegistration();
+}
+document.querySelectorAll('a[href="#register"]').forEach(link => {
+  link.addEventListener('click', loadRegistration);
+});
+
 // Keep the mobile action clear of the registration form while it is in view.
 const mobileCta = document.querySelector('.mobile-cta');
 if (mobileCta && 'IntersectionObserver' in window) {
@@ -23,7 +77,9 @@ if (mobileCta && 'IntersectionObserver' in window) {
     ttq._o=ttq._o||{};ttq._o[e]=n||{};
     var s=d.createElement("script");s.type="text/javascript";s.async=true;
     s.src=r+"?sdkid="+e+"&lib="+t;
-    var first=d.getElementsByTagName("script")[0];first.parentNode.insertBefore(s,first);
+    var insert=function(){d.head.appendChild(s)};
+    if('requestIdleCallback' in w){w.requestIdleCallback(insert,{timeout:1500})}
+    else{w.setTimeout(insert,0)};
   };
   ttq.load("D9L4Q53C77U3RB5B3NTG");ttq.page();
 }(window,document,"ttq");
